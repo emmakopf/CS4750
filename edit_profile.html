@@ -9,6 +9,28 @@ session_start();
 <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
+<script type = "text/javascript">
+ var verified = getCookie("verified");
+ if (verified == 'false'){
+	window.location.replace("profile.php");
+ }
+ 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return (c.substring(name.length, c.length));
+        }
+    }
+    return "";
+}
+ </script>
     <nav class="navbar navbar" style="color:black">
         <div class="container-fluid">
 

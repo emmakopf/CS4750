@@ -121,6 +121,7 @@
             return null;
         }
         
+		$_SESSION["verified"] = false; 
 		$username = $_SESSION["username"];
         $getGenre = "SELECT fav_genre FROM Users WHERE username = '$username'";
         $fav_genre = mysqli_query($con, $getGenre);
@@ -139,6 +140,7 @@
 		
 	<script type = "text/javascript">
 		//Populate tvshow table
+		document.cookie = "verified=false";
 		var tvrow = document.getElementById("showRow");
 		var i = 0;
 		<?php 

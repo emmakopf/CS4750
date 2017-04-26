@@ -8,7 +8,7 @@
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-
+else{
     $name = $_POST["username"];
     $pword = md5($_POST["password"]);
     $login = false;
@@ -23,6 +23,7 @@
             $_SESSION["username"] = $name;?>
 			<script type = "text/javascript">
 				document.cookie = "loginwrong=right";
+				document.cookie = "verified=true";
 				window.location.replace("edit_profile.html");
 			</script>
             <?php
@@ -36,6 +37,7 @@
 			<?php
 		}
 	}
+}
 	$stmt->close();
     $db->close();
 ?>

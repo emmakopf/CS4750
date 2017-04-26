@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS Watched_movie;
+DROP TABLE IF EXISTS Watched_show;
+DROP TABLE IF EXISTS similar_movies;
+DROP TABLE IF EXISTS starin_movie;
+DROP TABLE IF EXISTS starin_tv;
+DROP TABLE IF EXISTS Fan_Of;
+
+
 DROP TABLE IF EXISTS TVShows;
 CREATE TABLE TVShows ( 
     Title VARCHAR(255),  
@@ -142,7 +150,7 @@ CREATE TABLE Actors (
  ('CE139', 'Chris', 'Evans'),
  ('DR140', 'Daniel', 'Radcliffe');
  
-DROP TABLE IF EXISTS starin_movie;
+
 create table starin_movie (Actor_ID char(5), movie_id int);
 insert into
 starin_movie
@@ -187,7 +195,7 @@ VALUES
 ('CE139', 1032),
 ('DR140', 1033);
 
-DROP TABLE IF EXISTS starin_tv;
+
 CREATE TABLE starin_tv (
 	TVID INT not null,
 	Actor_ID char(5) not null
@@ -218,7 +226,7 @@ INSERT INTO starin_tv VALUES
 (2011, 'LN132'),
 (2011, 'WS133');
 
-DROP TABLE IF EXISTS Fan_Of;
+
 CREATE TABLE Fan_Of (
 	Username VARCHAR(255) not null ,
 	Actor_ID char(5) not null
@@ -270,7 +278,7 @@ INSERT INTO Fan_Of VALUES
 ('kevthumim', 'RD138'),
 ('kevthumim', 'DR140');
 
-DROP TABLE IF EXISTS similar_movies;
+
 create table similar_movies (movie_id int, similar_to_movie_id int);
 insert into similar_movies VALUES
 (1000, 1001),
@@ -331,13 +339,13 @@ insert into similar_movies VALUES
 (1033, 1030),
 (1033, 1020);
 
-DROP TABLE IF EXISTS Watched_show;
+
 CREATE TABLE Watched_show (
 	Username VARCHAR(255) not null,
 	TVID int not null
  );
  
-DROP TABLE IF EXISTS Watched_movie;
+
 CREATE TABLE Watched_movie (
 	Username VARCHAR(255) not null,
 	movie_id int not null

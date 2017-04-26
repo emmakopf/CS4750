@@ -1,3 +1,10 @@
+DROP TABLE IF EXISTS Watched_movie;
+DROP TABLE IF EXISTS Watched_show;
+DROP TABLE IF EXISTS similar_movies;
+DROP TABLE IF EXISTS starin_movie;
+DROP TABLE IF EXISTS starin_tv;
+DROP TABLE IF EXISTS Fan_Of;
+
 DROP TABLE IF EXISTS TVShows;
 CREATE TABLE TVShows ( 
     Title VARCHAR(255),  
