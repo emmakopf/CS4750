@@ -18,16 +18,21 @@
 
 
     $old = "SELECT password FROM Users WHERE username='$name'";
-    $res = md5(mysqli_query($con, $old));
+    $res = mysqli_query($db, $old);
+    while ($oldpw = mysqli_fetch_array($res)) {
+        $pw = $oldpw['password'];
+     }
 
-    if ($res = $pword) {
-    $sql = "update Users set fav_genre='$genre' where username='$name'";
-    $query = $db->query($sql);
-    if ($query == TRUE) { ?>
-        <script type = "text/javascript">
-            document.cookie = "loginwrong=right";
-            window.location.replace("profile.php");
-        </script> <?php
+
+    if (strcmp($pw,$pword)) {
+        $sql = "update Users set fav_genre='$genre' where username='$name'";
+        $query = $db->query($sql);
+        if ($query == TRUE) { ?>
+            <script type = "text/javascript">
+                document.cookie = "loginwrong=right";
+                window.location.replace("profile.php");
+            </script> <?php
+        }
     } else {
         ?>
         <script type = "text/javascript">
@@ -36,7 +41,7 @@
         </script>
     <?php
         }
-    }
+
 
     $db->close();
 ?>

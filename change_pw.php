@@ -18,9 +18,18 @@
     
     
     $old = "SELECT password FROM Users WHERE username='$name'";
+<<<<<<< Updated upstream
     $res = md5(mysqli_query($con, $old));
     
     if ($res === $ogpword) {
+=======
+    $res = mysqli_query($db, $old);
+    while ($oldpw = mysqli_fetch_array($res)) {
+        $pw = $oldpw['password'];
+     }
+
+    if (strcmp($pw,$ogpword)) {
+>>>>>>> Stashed changes
     $sql = "update Users set password='$newpword' where username='$name'";
     $query = $db->query($sql);
     if ($query == TRUE) { ?>
@@ -28,6 +37,7 @@
             document.cookie = "loginwrong=right";
             window.location.replace("profile.php");
         </script> <?php
+        }
     } else {
         ?>
         <script type = "text/javascript">
@@ -36,7 +46,7 @@
         </script>
     <?php
         }
-    }
+
 
     $db->close();
 ?>
