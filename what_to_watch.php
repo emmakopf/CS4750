@@ -84,7 +84,7 @@ input{
     <h2> What to watch: </h2>
     <h3> Watch again: </h3>
     <div style="overflow-x:auto;">
-        <table id="popularShows" border = "1" class="table-responsive" align = left>
+        <table id="popularShows" border = "1" class="table-responsive" align = center>
             <tr id="showRow">
             </tr>
         </table>
@@ -133,7 +133,7 @@ input{
         var tvrow = document.getElementById("showRow");
         var i = 0;
         <?php
-            $query1="(SELECT Title, TVID AS ID from TVShows WHERE TVID IN (SELECT TVID from Watched_show Where Username = '$username') AND Genre='$genre') UNION ALL (SELECT Title, movie_id AS ID from Movies WHERE movie_id IN (SELECT movie_id from Watched_movie Where Username = '$username') AND Genre='$genre')";
+            $query1="(SELECT Title, TVID AS ID from TVShows WHERE TVID IN (SELECT TVID from Watched_show Where Username = '$username')) UNION ALL (SELECT Title, movie_id AS ID from Movies WHERE movie_id IN (SELECT movie_id from Watched_movie Where Username = '$username'))";
             $result = mysqli_query($con, $query1);
     
             while($tvrow = mysqli_fetch_array($result)) { ?>

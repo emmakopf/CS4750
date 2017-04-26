@@ -59,13 +59,13 @@ VALUES
 ('Edward Scissorhands', 1024, 5, 'Drama', 'Tim Burton', '1990-12-14'),
 ('Doubt', 1025, 4, 'Drama', 'John Patrick Shanley', '2008-12-25'),
 ('Good Will Hunting', 1026, 5, 'Drama', 'Gus Van Sant', '1998-01-09'),
-('Star Trek', 1027, 4, 'Sci-Fi', 'J.J. Abrams', '2009-05-08'),
-('Star Wars: Episode I -Phantom Menace', 1028, 3, 'Sci-Fi', 'George Lucas', '1999-05-19'),
-('Thor', 1029, 4, 'Sci-Fi', 'Kenneth Branagh', '2011-05-06'),
-('The Avengers', 1030, 5, 'Sci-Fi', 'Joss Whedon', '2012-05-04'),
-('Iron Man', 1031, 5, 'Sci-Fi', 'Jon Favreau', '2008-05-02'),
-('Fantastic Four', 1032, 3, 'Sci-Fi', 'Tim Story', '2005-07-08'),
-('Harry Potter and the Chamber of Secrets', 1033, 5, 'Sci-Fi', 'Chris Columbus', '2002-11-15');	
+('Star Trek', 1027, 4, 'Sci-Fi/Fantasy', 'J.J. Abrams', '2009-05-08'),
+('Star Wars: Episode I -Phantom Menace', 1028, 3, 'Sci-Fi/Fantasy', 'George Lucas', '1999-05-19'),
+('Thor', 1029, 4, 'Sci-Fi/Fantasy', 'Kenneth Branagh', '2011-05-06'),
+('The Avengers', 1030, 5, 'Sci-Fi/Fantasy', 'Joss Whedon', '2012-05-04'),
+('Iron Man', 1031, 5, 'Sci-Fi/Fantasy', 'Jon Favreau', '2008-05-02'),
+('Fantastic Four', 1032, 3, 'Sci-Fi/Fantasy', 'Tim Story', '2005-07-08'),
+('Harry Potter and the Chamber of Secrets', 1033, 5, 'Sci-Fi/Fantasy', 'Chris Columbus', '2002-11-15');	
 	
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users ( 
