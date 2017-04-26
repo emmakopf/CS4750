@@ -76,7 +76,7 @@ session_start();
     <form action="change_pw.php" method="post">
         <p style="margin-left:15%">Verify Password:<input type="password" name="old_password" required id="old_password"/> </p>
         <p style="margin-left:15%">New Password: <input type="password" name="new_password" required id="new_password" /></p>
-        <input type="Submit" style="margin-left:15%">
+        <input type="Submit" value="Change Password" style="margin-left:15%">
     </form>
 
     <br><br>
@@ -94,8 +94,22 @@ session_start();
                 <option value="Sci-Fi/Fantasy">Sci-Fi/Fantasy</option>
             </select>
         </p>
-        <input type="Submit" style="margin-left:15%">
+        <input type="Submit" value="Change genre" style="margin-left:15%">
     </form>
+
+    <br><br>
+    <br><br>
+
+    <div style="margin-left:10%;color:white">Delete you account</div>
+    <form action="delete_user.php" method="post">
+        <p style="margin-left:15%">Verify Password:<input type="password" name="pwd" required id="pwd"/> </p>
+        <p style="margin-left:15%">Are you sure you want to delete your count?
+            <select name="decision" style="color:black">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </p>
+        <input type="Submit" value="Delete Account" style="margin-left:15%">
 </body>
 
 </html>
