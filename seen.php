@@ -1,5 +1,5 @@
- <?php
- session_start();
+<?php
+    session_start();
     ob_start();
     include_once("./library.php");
         $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
@@ -23,7 +23,7 @@
 			$query1="INSERT INTO Watched_movie Values ('$username', '$id')";
 		}
 			$result1 = mysqli_query($con, $query1);
-		header("Location: info.php?id=".$id);
+            header("Location: info.php?id=".$id);
 	}
 	else if($submit == "Remove from Seen"){
 		
