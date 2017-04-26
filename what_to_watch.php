@@ -128,8 +128,6 @@ input{
             $toWatch = $actorWatch['Genre'];
         }?></h2>
 
-
-
     <script type = "text/javascript">
         //Populate seen before table
         var tvrow = document.getElementById("showRow");
@@ -141,7 +139,7 @@ input{
             while($tvrow = mysqli_fetch_array($result)) { ?>
                 var x = tvrow.insertCell(i);
                 <?php $title = $tvrow['ID']; ?>
-                x.innerHTML ="<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                x.innerHTML ="<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                 i++;
             <?php } ?>;
 
@@ -155,7 +153,7 @@ input{
                 while($mrow = mysqli_fetch_array($result2)) { ?>
                     var x = mrow.insertCell(j);
                     <?php $title = $mrow['ID']; ?>
-                    var link = "<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                    var link = "<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                     x.innerHTML = link;
 
                     j++;
@@ -165,13 +163,13 @@ input{
             var arow = document.getElementById("actorRow");
             var k = 0;
             <?php
-                $query3="SELECT TVID AS ID FROM TVShows WHERE Genre='$toWatch' UNION ALL SELECT movie_id AS ID FROM Movies WHERE Genre='$toWatch'";
+                $query3="SELECT TVID AS ID FROM TVShows WHERE Genre='$toWatch' UNION ALL (SELECT movie_id AS ID FROM Movies WHERE Genre='$toWatch')";
                 $result3 = mysqli_query($con, $query3);
     
                 while($arow = mysqli_fetch_array($result3)) { ?>
                     var x = arow.insertCell(k);
                     <?php $title = $arow['ID']; ?>
-                    var link = "<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                    var link = "<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                     x.innerHTML = link;
                     k++;
                 <?php } ?>;
