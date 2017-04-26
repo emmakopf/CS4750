@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="profile.html" style="color:white">NeXtflix</a>
+                <a class="navbar-brand" href="profile.php" style="color:white">NeXtflix</a>
             </div>
 
             <div class="collapse navbar-collapse" id="topNavBar">
@@ -39,6 +39,13 @@
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Logout
 						</a>
 					</li>
+				</ul>
+				<ul class ="nav navbar-nav navbar-right">
+				    <li class="">
+				        <a href="edit_profile.html" style="color:white">
+				            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Edit Profile
+				        </a>
+				    </li>
 				</ul>
             </div>
         </div>
@@ -81,17 +88,51 @@
     <h1>Welcome: <?php echo($_SESSION["username"]); ?> </h1>
 	 
     <h2><?php
-	
+		//Setup Database
+		include_once("./library.php");
+        $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+        
+        if (mysqli_connect_errno()) {
+            echo("Can't connect to MySQL Server.");
+            return null;
+        }
+		
 		$id = htmlspecialchars($_GET["id"]);
-		echo ($id."<br>");
-		
-		$query="SELECT * FROM TVShows, MOVIES WHERE movie_id = '$id' OR tvid = '$id'";
-		$result = mysqli_query($con, $query);
-		
-		while($row = mysqli_fetch_array($result)) { 
-			$title = $row['Title']; ?>
+		//Query:
+		$query1="SELECT * FROM TVShows WHERE tvid = '$id'";
+		$query2="SELECT * FROM Movies WHERE movie_id = '$id'";
+		$result1 = mysqli_query($con, $query1);
+		$result2 = mysqli_query($con, $query2);
+		//If Show:
+		if($id[0] == 2){
+			while($row = mysqli_fetch_array($result1)) { 
+				$title = $row['Title'];
+				echo($title."<br>");
+				$seasons = $row['Seasons'];
+				echo("Seasons: ".$seasons."<br>");
+				$genre = $row['Genre'];
+				echo("Genre: ".$genre."<br>");
+				$rating = $row['Rating'];
+				echo("Rating: ".$rating."<br>");
+			}
+		}
+		//If Movie:
+		else{
+			while($row = mysqli_fetch_array($result2)) { 
+				$title = $row['Title']; 
+				echo($title."<br>");
+				$rating = $row['Rating'];
+				echo("Rating: ".$rating."<br>");
+				$director = $row['director'];
+				echo("Director: ".$director."<br>");
+				$genre = $row['Genre'];
+				echo("Genre: ".$genre."<br>");
+				$releaseDete = $row['release_date'];
+				echo("Released on: ".$releaseDete."<br>");
+			}
+		}
 		?>
-		<img src='./images/<?php echo($id); ?>.jpg'
+		<img src='./images/<?php echo($id); ?>.jpg'>
 	</h2>
 		
 	<?php  }?>

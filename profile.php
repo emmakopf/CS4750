@@ -134,13 +134,14 @@
 		var tvrow = document.getElementById("showRow");
 		var i = 0;
 		<?php 
-		$query1="SELECT Title FROM TVShows WHERE TVShows.Rating > 4";
+		$query1="SELECT Title, tvid FROM TVShows WHERE TVShows.Rating > 4";
 		$result = mysqli_query($con, $query1);
 		
 		while($tvrow = mysqli_fetch_array($result)) { ?>
 			var x = tvrow.insertCell(i);
-            <?php $title = $tvrow['Title']; ?>
-			x.innerHTML ="<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+            <?php $title = $tvrow['Title']; 
+			$id = $tvrow['tvid']; ?>
+			x.innerHTML ="<a href='info.php?id=<?php echo($id); ?>'><img src='./images/<?php echo($id); ?>.jpg' style='width:180px;height:152px;'></a>";
 			i++;
            <?php } ?>;
 		   
@@ -156,7 +157,7 @@
             <?php $title = $mrow['Title']; 
 				$id = $mrow['movie_id'];
 				 ?>
-			x.innerHTML ="<a href='info.php?id=<?php echo($id); ?>'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+			x.innerHTML ="<a href='info.php?id=<?php echo($id); ?>'><img src='./images/<?php echo($id); ?>.jpg' style='width:180px;height:152px;'></a>";
 			j++;
            <?php } ?>;
 	</script>
