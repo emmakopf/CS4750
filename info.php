@@ -99,11 +99,21 @@
 		
 		$id = htmlspecialchars($_GET["id"]);
 		$_SESSION["id"] = $id;
+		$myUsername = $_SESSION["username"];
 		//Query:
 		$query1="SELECT * FROM TVShows WHERE tvid = '$id'";
 		$query2="SELECT * FROM Movies WHERE movie_id = '$id'";
+		//Seen it?
+		if($id[0] == 2){
+			$query3="SELECT * FROM Watched_show WHERE tvid = '$id' AND '$myUsername' = username";
+		}
+		//if movie
+		else{
+			$query3="SELECT * FROM Watched_movie WHERE movie_id = '$id' AND '$myUsername' = username";
+		}
 		$result1 = mysqli_query($con, $query1);
 		$result2 = mysqli_query($con, $query2);
+		$result3 = mysqli_query($con, $query3);
 		//If Show:
 		if($id[0] == 2){
 			while($row = mysqli_fetch_array($result1)) { 
@@ -132,6 +142,10 @@
 				echo("Released on: ".$releaseDete."<br>");
 			}
 		}
+		if(mysqli_fetch_array($result3)){
+			$watched = true;
+			echo("Ive watched it");
+		}
 		?>
 		<img src='./images/<?php echo($id); ?>.jpg'>
 	</h2>	
@@ -146,16 +160,14 @@
 	
 	<?php  }?>
 	<script type = "text/javascript">
-	 var which  = "<?php echo $_SESSION["viewwhich"]?>";
-	 //alert(which);
- 
- if(which){
-	togglediv(which);
+	var watched = <?php echo $watched ?>;
+ if(watched){
+	togglediv(watched);
 	}
- function togglediv(which) {
+ function togglediv(watched) {
 	var a = document.getElementById('add');
 	var r = document.getElementById('remove');	
-	if(which == 'remove'){
+	if(watched){
 		r.style.display = "block";	
 		a.style.display = "none";	
 	}

@@ -13,7 +13,6 @@
 	$id = $_SESSION["id"];
 	$username = $_SESSION["username"];
 	if($submit == "I Have Already Seen This"){
-		$_SESSION["viewwhich"] = "remove";
 		
 		//If Show:
 		if($id[0] == 2){
@@ -27,7 +26,6 @@
 		header("Location: info.php?id=".$id);
 	}
 	else if($submit == "Remove from Seen"){
-		$_SESSION["viewwhich"] = "add";
 		
 		//If Show:
 		if($id[0] == 2){

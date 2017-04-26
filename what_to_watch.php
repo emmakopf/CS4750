@@ -172,7 +172,7 @@ input{
                     var link = "<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                     x.innerHTML = link;
                     k++;
-                <?php } ?>;
+ <?php } ?>;
     </script>
 </body>
 
