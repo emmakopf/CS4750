@@ -1,13 +1,13 @@
 <?php
     ob_start();
     session_start();
-   	include_once("./connect_to_db.php");
-        $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
-        
-        if (mysqli_connect_errno()) {
-            echo("Can't connect to MySQL Server.");
-            return null;
-        }
+   	include("./connect_to_db.php");
+           $db = DbUtil::loginConnection();
+    
+    // Check connection
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
     
     $username = $_POST['username'];
     $first_name = $_POST['first_name'];
@@ -20,8 +20,6 @@
 	$sql="SELECT username FROM Users";
 	$result = $db->query($sql);
 	while($row = $result->fetch_assoc()){
-		echo($row["username"]);
-		echo("<br>");
 		if($row["username"] == $username){ ?>
 			<script type = "text/javascript">
 				document.cookie = "usernametaken=taken";
