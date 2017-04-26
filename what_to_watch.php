@@ -61,12 +61,12 @@ color: white;
 h2 {
     font-family: Avenir;
 color: white;
-    margin-left: 5%;
+    margin-left: 1%;
 }
 h3 {
     font-family: Avenir;
 color: white;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 p{
     font-family: Avenir;
@@ -82,6 +82,9 @@ input{
         }?>
     </h1>
     <h2> What to watch: </h2>
+    <form action="random.php">
+        <button type="Submit" style="margin-left:2%">Suprise me!</button>
+    </form>
     <h3> Watch again: </h3>
     <div style="overflow-x:auto;">
         <table id="popularShows" border = "1" class="table-responsive" align = center>
@@ -174,6 +177,8 @@ input{
                     k++;
  <?php } ?>;
     </script>
+
+
 </body>
 
 </html>
