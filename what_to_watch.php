@@ -139,7 +139,7 @@ input{
             while($tvrow = mysqli_fetch_array($result)) { ?>
                 var x = tvrow.insertCell(i);
                 <?php $title = $tvrow['ID']; ?>
-                x.innerHTML ="<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                x.innerHTML ="<a href='info.php?id=<?php echo($title); ?>'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                 i++;
             <?php } ?>;
 
@@ -153,7 +153,7 @@ input{
                 while($mrow = mysqli_fetch_array($result2)) { ?>
                     var x = mrow.insertCell(j);
                     <?php $title = $mrow['ID']; ?>
-                    var link = "<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                    var link = "<a href='info.php?id=<?php echo($title); ?>'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                     x.innerHTML = link;
 
                     j++;
@@ -169,7 +169,7 @@ input{
                 while($arow = mysqli_fetch_array($result3)) { ?>
                     var x = arow.insertCell(k);
                     <?php $title = $arow['ID']; ?>
-                    var link = "<a href='info.php'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                    var link = "<a href='info.php?id=<?php echo($title); ?>'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                     x.innerHTML = link;
                     k++;
  <?php } ?>;
