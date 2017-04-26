@@ -20,7 +20,7 @@
     $old = "SELECT password FROM Users WHERE username='$name'";
     $res = md5(mysqli_query($con, $old));
     
-    if ($res = $ogpword) {
+    if ($res === $ogpword) {
     $sql = "update Users set password='$newpword' where username='$name'";
     $query = $db->query($sql);
     if ($query == TRUE) { ?>

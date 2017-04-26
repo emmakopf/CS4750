@@ -96,6 +96,13 @@ input{
             </tr>
         </table>
     </div>
+    <h3> Based on actors you like: </h3>
+    <div style="overflow-x:auto;">
+        <table id="actors" border = "1" class="table-responsive" align = center>
+            <tr id="actorRow">
+            </tr>
+        </table>
+    </div>
     <h2>
     <?php
         include_once("./library.php");
@@ -112,7 +119,16 @@ input{
     
         while($genres = mysqli_fetch_array($fav_genre)) {
             $genre = $genres['fav_genre'];
-        } ?></h2>
+        }
+        
+        $findGenre = "SELECT Genre FROM TVShows WHERE TVID IN (SELECT TVID FROM starin_tv WHERE Actor_ID IN (SELECT Actor_ID FROM Fan_Of WHERE Username='$username'))";
+        $actorGenre = mysqli_query($con, $findGenre);
+        
+        while($actorWatch = mysqli_fetch_array($actorGenre)) {
+            $toWatch = $actorWatch['Genre'];
+        }?></h2>
+
+
 
     <script type = "text/javascript">
         //Populate seen before table
@@ -143,6 +159,21 @@ input{
                     x.innerHTML = link;
 
                     j++;
+                <?php } ?>;
+
+            // Populate actors table
+            var arow = document.getElementById("actorRow");
+            var k = 0;
+            <?php
+                $query3="SELECT TVID AS ID FROM TVShows WHERE Genre='$toWatch' UNION ALL SELECT movie_id AS ID FROM Movies WHERE Genre='$toWatch'";
+                $result3 = mysqli_query($con, $query3);
+    
+                while($arow = mysqli_fetch_array($result3)) { ?>
+                    var x = arow.insertCell(k);
+                    <?php $title = $arow['ID']; ?>
+                    var link = "<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+                    x.innerHTML = link;
+                    k++;
                 <?php } ?>;
     </script>
 </body>
