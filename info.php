@@ -144,7 +144,6 @@
 		}
 		if(mysqli_fetch_array($result3)){
 			$watched = true;
-			echo("Ive watched it");
 		}
 		?>
 		<img src='./images/<?php echo($id); ?>.jpg'>

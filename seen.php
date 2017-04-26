@@ -29,7 +29,6 @@
 		
 		//If Show:
 		if($id[0] == 2){
-			echo("here <br>");
 			$query2="DELETE FROM Watched_show 
 			WHERE Watched_show.Username = '$username' 
 			AND  Watched_show.TVID = '$id'";
