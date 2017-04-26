@@ -28,7 +28,7 @@
 <div class="collapse navbar-collapse" id="topNavBar">
 <ul class="nav navbar-nav navbar-right" style="color:white">
 <li class="">
-<a href="" style="color:white">
+<a href="what_to_watch.php" style="color:white">
 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp; What to Watch!
 </a>
 </li>
@@ -119,12 +119,12 @@ input{
         var tvrow = document.getElementById("showRow");
         var i = 0;
         <?php
-            $query1="(SELECT Title from TVShows WHERE TVID IN (SELECT TVID from Watched_show Where Username = '$username') AND Genre='$genre') UNION ALL (SELECT Title from Movies WHERE movie_id IN (SELECT movie_id from Watched_movie Where Username = '$username') AND Genre='$genre')";
+            $query1="(SELECT Title, TVID AS ID from TVShows WHERE TVID IN (SELECT TVID from Watched_show Where Username = '$username') AND Genre='$genre') UNION ALL (SELECT Title, movie_id AS ID from Movies WHERE movie_id IN (SELECT movie_id from Watched_movie Where Username = '$username') AND Genre='$genre')";
             $result = mysqli_query($con, $query1);
     
             while($tvrow = mysqli_fetch_array($result)) { ?>
                 var x = tvrow.insertCell(i);
-                <?php $title = $tvrow['Title']; ?>
+                <?php $title = $tvrow['ID']; ?>
                 x.innerHTML ="<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                 i++;
             <?php } ?>;
@@ -133,12 +133,12 @@ input{
             var mrow = document.getElementById("movieRow");
             var j = 0;
             <?php
-                $query2="(SELECT Title from TVShows WHERE TVID NOT IN (SELECT TVID from Watched_show Where Username = '$username') AND Genre='$genre') UNION ALL (SELECT Title from Movies WHERE movie_id NOT IN (SELECT movie_id from Watched_movie Where Username = '$username') AND Genre='$genre')";
+                $query2="(SELECT Title,TVID AS ID from TVShows WHERE TVID NOT IN (SELECT TVID from Watched_show Where Username = '$username') AND Genre='$genre') UNION ALL (SELECT Title, movie_id AS ID from Movies WHERE movie_id NOT IN (SELECT movie_id from Watched_movie Where Username = '$username') AND Genre='$genre')";
                 $result2 = mysqli_query($con, $query2);
     
                 while($mrow = mysqli_fetch_array($result2)) { ?>
                     var x = mrow.insertCell(j);
-                    <?php $title = $mrow['Title']; ?>
+                    <?php $title = $mrow['ID']; ?>
                     var link = "<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
                     x.innerHTML = link;
 
