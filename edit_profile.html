@@ -74,7 +74,7 @@ session_start();
     <h2>Edit your Profile</h2>
     <div style="margin-left:10%;color:white">Change your password</div>
     <form action="change_pw.php" method="post">
-        <p style="margin-left:15%">Original Password:<input type="password" name="password" required id="password"/> </p>
+        <p style="margin-left:15%">Verify Password:<input type="password" name="old_password" required id="old_password"/> </p>
         <p style="margin-left:15%">New Password: <input type="password" name="new_password" required id="new_password" /></p>
         <input type="Submit" style="margin-left:15%">
     </form>
@@ -84,6 +84,7 @@ session_start();
 
     <div style="margin-left:10%;color:white">Change your favorite genre</div>
     <form action="change_genre.php" method="post">
+        <p style="margin-left:15%">Verify Password:<input type="password" name="password" required id="password"/> </p>
          <p style="margin-left:15%">Pick your new favorite genre:
             <select name="fav_genre" style="color:black">
                 <option value="Comedy">Comedy</option>

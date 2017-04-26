@@ -12,7 +12,7 @@
     }
 
     //Changing password
-    $ogpword = md5($_POST["password"]);
+    $ogpword = md5($_POST["old_password"]);
     $newpword = md5($_POST["new_password"]);
     $name = $_SESSION["username"];
     
