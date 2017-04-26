@@ -1,15 +1,13 @@
 <?php
     ob_start();
     session_start();
-   	include("./connect_to_db.php");
-    include_once("./library.php");
-    $db = DbUtil::loginConnection();
-    $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
-    
-    // Check connection
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
+   	include_once("./connect_to_db.php");
+        $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+        
+        if (mysqli_connect_errno()) {
+            echo("Can't connect to MySQL Server.");
+            return null;
+        }
     
     $username = $_POST['username'];
     $first_name = $_POST['first_name'];

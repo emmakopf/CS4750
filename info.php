@@ -89,7 +89,7 @@
 	 
     <h2><?php
 		//Setup Database
-		include_once("./library.php");
+		include_once("library.php");
         $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
         
         if (mysqli_connect_errno()) {
@@ -98,6 +98,7 @@
         }
 		
 		$id = htmlspecialchars($_GET["id"]);
+		$_SESSION["id"] = $id;
 		//Query:
 		$query1="SELECT * FROM TVShows WHERE tvid = '$id'";
 		$query2="SELECT * FROM Movies WHERE movie_id = '$id'";
@@ -133,9 +134,37 @@
 		}
 		?>
 		<img src='./images/<?php echo($id); ?>.jpg'>
-	</h2>
-		
+	</h2>	
+	<form action="seen.php" method="post">
+		<div id="add" style="display: blcok;">
+			<input type = "submit" id = "add" value = "I Have Already Seen This" name ="submit" style="margin-left: 5%;">
+		</div>
+		<div id="remove" style="display: none;">
+			<input type = "submit" id = "remove" value = "Remove from Seen" name ="submit" style="margin-left: 5%;">
+		</div>
+	</form>
+	
 	<?php  }?>
+	<script type = "text/javascript">
+	 var which  = "<?php echo $_SESSION["viewwhich"]?>";
+	 //alert(which);
+ 
+ if(which){
+	togglediv(which);
+	}
+ function togglediv(which) {
+	var a = document.getElementById('add');
+	var r = document.getElementById('remove');	
+	if(which == 'remove'){
+		r.style.display = "block";	
+		a.style.display = "none";	
+	}
+	else{
+		a.style.display = "block";	
+		r.style.display = "none";
+	}
+}
+</script>
 </body>
 
 </html>
