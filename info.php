@@ -81,8 +81,15 @@
     <h1>Welcome: <?php echo($_SESSION["username"]); ?> </h1>
 	 
     <h2><?php
+	
 		$id = htmlspecialchars($_GET["id"]);
 		echo ($id."<br>");
+		
+		$query="SELECT * FROM TVShows, MOVIES WHERE movie_id = '$id' OR tvid = '$id'";
+		$result = mysqli_query($con, $query);
+		
+		while($row = mysqli_fetch_array($result)) { 
+			$title = $row['Title']; ?>
 		?>
 		<img src='./images/<?php echo($id); ?>.jpg'
 	</h2>
