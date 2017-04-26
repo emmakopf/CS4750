@@ -13,30 +13,30 @@
 
     //Changing password
     $ogpword = md5($_POST["password"]);
-    $login = false;
-    $newpword=md5($_POST["new_password"]);
-    echo $newpword;
+    $newpword = md5($_POST["new_password"]);
     $name = $_SESSION["username"];
-
-    $stmt = $db->stmt_init();
-    if ($stmt = $db->prepare("select username, password from Users where username = ? and password = ?")) {
-        $stmt->bind_param('ss', $name, $ogpword);
-        $stmt->execute();
-        $stmt->bind_result($name, $pass);
-        if ($stmt->fetch()) {
-            $sql = "update Users set password = '$newpword' where username = '$name'";
-            $update = mysqli_query($con,$sql);
-
+    
+    
+    $old = "SELECT password FROM Users WHERE username='$name'";
+    $res = md5(mysqli_query($con, $old));
+    
+    if ($res = $ogpword) {
+    $sql = "update Users set password='$newpword' where username='$name'";
+    $query = $db->query($sql);
+    if ($query == TRUE) { ?>
+        <script type = "text/javascript">
+            document.cookie = "loginwrong=right";
+            window.location.replace("profile.php");
+        </script> <?php
+    } else {
+        ?>
+        <script type = "text/javascript">
+            document.cookie = "loginwrong=wrong";
+            window.location.replace("edit_profile.html");
+        </script>
+    <?php
         }
-		//Incorrect:
-		else{ ?>
-			<script type = "text/javascript">
-				document.cookie = "loginwrong=wrong";
-				window.location.replace("login.html");
-			</script>
-			<?php
-		}
-	}
-	$stmt->close();
+    }
+
     $db->close();
 ?>
