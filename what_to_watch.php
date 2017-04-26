@@ -26,13 +26,6 @@
 </div>
 
 <div class="collapse navbar-collapse" id="topNavBar">
-<ul class="nav navbar-nav navbar-right" style="color:white">
-<li class="">
-<a href="what_to_watch.php" style="color:white">
-<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp; What to Watch!
-</a>
-</li>
-</ul>
 <ul class="nav navbar-nav navbar-right">
 <li class="">
 <a href="logout.php" style="color:white">
@@ -40,6 +33,20 @@
 </a>
 </li>
 </ul>
+<ul class="nav navbar-nav navbar-right" style="color:white">
+<li class="">
+<a href="what_to_watch.php" style="color:white">
+<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp; What to Watch!
+</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right" style="color:white">
+                    <li class="">
+                        <a href="random.php" style="color:white">
+                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>&nbsp; Surprise me!
+                        </a>
+                    </li>
+                </ul>
 </div>
 </div>
 </nav>
@@ -82,9 +89,6 @@ input{
         }?>
     </h1>
     <h2> What to watch: </h2>
-    <form action="random.php">
-        <button type="Submit" style="margin-left:2%">Suprise me!</button>
-    </form>
     <h3> Watch again: </h3>
     <div style="overflow-x:auto;">
         <table id="popularShows" border = "1" class="table-responsive" align = center>
