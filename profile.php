@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="profile.html" style="color:white">NeXtflix</a>
+                <a class="navbar-brand" href="profile.php" style="color:white">NeXtflix</a>
             </div>
 
             <div class="collapse navbar-collapse" id="topNavBar">
@@ -39,6 +39,13 @@
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Logout
 						</a>
 					</li>
+				</ul>
+				<ul class ="nav navbar-nav navbar-right">
+				    <li class="">
+				        <a href="edit_profile.html" style="color:white">
+				            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Edit Profile
+				        </a>
+				    </li>
 				</ul>
             </div>
         </div>
@@ -83,15 +90,19 @@
 	 </h1>
 	 <h2> Popular Now </h2>
 	 <h3> TV Shows: </h3>
+        <div style="overflow-x:auto;">
 		<table id="popularShows" border = "1" class="table-responsive" align = center>
 			<tr id="showRow">
 			</tr>
 		</table>
+        </div>
 		<h3> Movies: </h3>
+        <div style="overflow-x:auto;">
 		<table id="popularMovies" border = "1" class="table-responsive" align = center>
 			<tr id="movieRow">
 			</tr>
 		</table>
+        </div>
     <h2>
     <?php //Find current user's favorite genre
         include_once("./library.php");
@@ -128,7 +139,8 @@
 		
 		while($tvrow = mysqli_fetch_array($result)) { ?>
 			var x = tvrow.insertCell(i);
-			x.innerHTML = "<h4><?php echo($tvrow['Title']); ?></h4>";			
+            <?php $title = $tvrow['Title']; ?>
+			x.innerHTML ="<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
 			i++;
            <?php } ?>;
 		   
@@ -141,7 +153,8 @@
 		
 		while($mrow = mysqli_fetch_array($result2)) { ?>
 			var x = mrow.insertCell(j);
-			x.innerHTML = "<h6><?php echo($mrow['Title']); ?></h6>";			
+            <?php $title = $mrow['Title']; ?>
+			x.innerHTML ="<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
 			j++;
            <?php } ?>;
 	</script>
