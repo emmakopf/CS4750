@@ -33,6 +33,13 @@
 </a>
 </li>
 </ul>
+<ul class ="nav navbar-nav navbar-right">
+				    <li class="">
+				        <a href="verify.php" style="color:white">
+				            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Edit Profile
+				        </a>
+				    </li>
+				</ul>
 <ul class="nav navbar-nav navbar-right" style="color:white">
 <li class="">
 <a href="what_to_watch.php" style="color:white">

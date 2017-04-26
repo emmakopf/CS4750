@@ -26,14 +26,8 @@
             </div>
 
             <div class="collapse navbar-collapse" id="topNavBar">
-                <ul class="nav navbar-nav navbar-right" style="color:white">
-                    <li class="">
-                        <a href="what_to_watch.php" style="color:white">
-                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp; What to Watch!
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+
+				 <ul class="nav navbar-nav navbar-right">
 					<li class="">
 						<a href="logout.php" style="color:white">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Logout
@@ -42,11 +36,25 @@
 				</ul>
 				<ul class ="nav navbar-nav navbar-right">
 				    <li class="">
-				        <a href="edit_profile.html" style="color:white">
+				        <a href="verify.php" style="color:white">
 				            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Edit Profile
 				        </a>
 				    </li>
 				</ul>
+                <ul class="nav navbar-nav navbar-right" style="color:white">
+                    <li class="">
+                        <a href="what_to_watch.php" style="color:white">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp; What to Watch!
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="color:white">
+                    <li class="">
+                        <a href="random.php" style="color:white">
+                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>&nbsp; Surprise me!
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
