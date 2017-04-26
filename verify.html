@@ -1,14 +1,7 @@
-<?php
-session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
+ </head>
     <nav class="navbar navbar" style="color:black">
         <div class="container-fluid">
 
@@ -19,7 +12,7 @@ session_start();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="profile.php" style="color:white">NeXtflix</a>
+                <a class="navbar-brand" href="index.html" style="color:white">NeXtflix</a>
             </div>
 
             <div class="collapse navbar-collapse" id="topNavBar">
@@ -49,12 +42,6 @@ session_start();
             font-family: Avenir;
             border-radius: 0;
         }
-     h1{
-         font-family: Avenir;
-         color: white;
-         text-align: center;
-
-     }
      h2 {
          font-family: Avenir;
          color: white;
@@ -63,57 +50,26 @@ session_start();
      p{
          font-family: Avenir;
          color: white;
-         margin-left: 10%;
+         margin-left: 5%;
      }
      input{
          font-family: Avenir;
-         color: black;
      }
  </style>
+
 <body>
-    <h2>Edit your Profile</h2>
-    <div style="margin-left:15%;color:white">Change your password</div>
+    <h2>Verify your login to make changes</h2>
+    <form action="verify.php" method="post">
 
-    <form action="change_pw.php" method="post">
-        <p style="margin-left:20%">New Password: <input type="password" name="new_password" required id="new_password" /></p>
-        <input type="Submit" name="change-password" value="Change Password" style="margin-left:20%">
+	<div id="incorrect" style="display: none;">
+		<font color="red">Your login info is incorrect, please try again. </font>
+	</div>
+        <p>Username: <input type="text" name="username" required id="username" style="color:black"/></p>
+        <p>Password: <input type="password" name="password" required id="password" style="color:black"/></p>
+        <input type="Submit" value="Verify" style="margin-left:5%">
     </form>
 
-
-    <br><br>
-
-    <div style="margin-left:15%;color:white">Change your favorite genre</div>
-
-    <form action="change_genre.php" method="post">
-         <p style="margin-left:20%">Pick your new favorite genre:
-            <select name="fav_genre" style="color:black">
-                <option disabled selected value > -- select an option -- </option>
-                <option value="Comedy">Comedy</option>
-                <option value="Horror">Horror</option>
-                <option value="Action">Action</option>
-                <option value="Drama">Drama</option>
-                <option value="Sci-Fi/Fantasy">Sci-Fi/Fantasy</option>
-            </select>
-        </p>
-        <input type="Submit" name="change-genre" value="Change genre" style="margin-left:20%">
-    </form>
-
-
-    <br><br>
-
-    <div style="margin-left:15%;color:white">Delete you account</div>
-
-    <form action="delete_account.php" method="post">
-        <p style="margin-left:20%">Are you sure you want to delete your count?
-            <select name="decision" style="color:black">
-                <option value="No">No</option>
-                <option value="Yes">Yes</option>
-            </select>
-        </p>
-        <input type="Submit" name="delete-account" value="Delete Account" style="margin-left:20%">
-    </form>
-
-<script type = "text/javascript">
+	<script type = "text/javascript">
  var wrong  = getCookie("loginwrong");
  if(wrong){
 	togglediv(wrong);
@@ -145,8 +101,9 @@ function getCookie(cname) {
     return "";
 }
 	</script>
-
 </body>
 
 
-</html>
+
+
+

@@ -42,7 +42,7 @@
 				</ul>
 				<ul class ="nav navbar-nav navbar-right">
 				    <li class="">
-				        <a href="edit_profile.html" style="color:white">
+				        <a href="verify.php" style="color:white">
 				            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Edit Profile
 				        </a>
 				    </li>

@@ -12,24 +12,9 @@
     }
 
     //Changing password
-    $ogpword = md5($_POST["old_password"]);
     $newpword = md5($_POST["new_password"]);
     $name = $_SESSION["username"];
-    
-    
-    $old = "SELECT password FROM Users WHERE username='$name'";
-<<<<<<< Updated upstream
-    $res = md5(mysqli_query($con, $old));
-    
-    if ($res === $ogpword) {
-=======
-    $res = mysqli_query($db, $old);
-    while ($oldpw = mysqli_fetch_array($res)) {
-        $pw = $oldpw['password'];
-     }
 
-    if (strcmp($pw,$ogpword)) {
->>>>>>> Stashed changes
     $sql = "update Users set password='$newpword' where username='$name'";
     $query = $db->query($sql);
     if ($query == TRUE) { ?>
@@ -38,14 +23,7 @@
             window.location.replace("profile.php");
         </script> <?php
         }
-    } else {
-        ?>
-        <script type = "text/javascript">
-            document.cookie = "loginwrong=wrong";
-            window.location.replace("edit_profile.html");
-        </script>
-    <?php
-        }
+
 
 
     $db->close();

@@ -12,33 +12,20 @@
     }
 
     //Changing password
-    $pwd = md5($_POST["pwd"]);
+
     $confirm= $_POST["decision"];
-    echo $confirm;
     $name = $_SESSION["username"];
 
-
-    $old = "SELECT password FROM Users WHERE username='$name'";
-    $res = md5(mysqli_query($con, $old));
     if($confirm == "Yes"){
-        if ($res = $pwd) {
-            $sql = "DELETE FROM Users WHERE username='$name'";
-            $query = $db->query($sql);
-            if ($query == TRUE) { ?>
-                <script type = "text/javascript">
-                    document.cookie = "loginwrong=right";
-                    window.location.replace("index.html");
-                </script> <?php
-        } else {
-            ?>
+        $sql = "DELETE FROM Users WHERE username='$name'";
+        $query = $db->query($sql);
+        if ($query == TRUE) { ?>
             <script type = "text/javascript">
-                document.cookie = "loginwrong=wrong";
-                window.location.replace("edit_profile.html");
-            </script>
-            <?php
-        }
+                document.cookie = "loginwrong=right";
+                window.location.replace("index.html");
+            </script> <?php
        }
-    } else if ($confirm == "No") {
+    } else {
         ?>
         <script type = "text/javascript">
             document.cookie = "loginwrong=wrong";
