@@ -128,19 +128,12 @@
         while($genres = mysqli_fetch_array($fav_genre)) {
             $genre = $genres['fav_genre'];
         }
-/*           
-		   //Join TVShows & Movies, select Titles of those that are from the same preferred genre of the logged in user
-            $query1="SELECT Title, Genre FROM Movies WHERE Genre='$genre' UNION ALL SELECT Title, Genre FROM TVShows WHERE Genre='$genre'";
-            
-        $result = mysqli_query($con, $query1);
-            while($row = mysqli_fetch_array($result)) {
-                echo($row['Title']."<br>");
-            }*/
         ?></h2>
 		
 	<script type = "text/javascript">
 		//Populate tvshow table
 		document.cookie = "verified=false";
+		document.cookie = "loginwrong=right";
 		var tvrow = document.getElementById("showRow");
 		var i = 0;
 		<?php 
