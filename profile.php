@@ -141,13 +141,15 @@
 		var mrow = document.getElementById("movieRow");
 		var j = 0;
 		<?php 
-		$query2="SELECT Title FROM Movies WHERE Movies.Rating = 5";
+		$query2="SELECT Title, movie_id FROM Movies WHERE Movies.Rating = 5";
 		$result2 = mysqli_query($con, $query2);
 		
 		while($mrow = mysqli_fetch_array($result2)) { ?>
 			var x = mrow.insertCell(j);
-            <?php $title = $mrow['Title']; ?>
-			x.innerHTML ="<a href='index.html'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
+            <?php $title = $mrow['Title']; 
+				$id = $mrow['movie_id'];
+				 ?>
+			x.innerHTML ="<a href='info.php?id=<?php echo($id); ?>'><img src='./images/<?php echo($title); ?>.jpg' style='width:180px;height:152px;'></a>";
 			j++;
            <?php } ?>;
 	</script>
