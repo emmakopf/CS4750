@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="profile.html" style="color:white">NeXtflix</a>
+                <a class="navbar-brand" href="profile.php" style="color:white">NeXtflix</a>
             </div>
 
             <div class="collapse navbar-collapse" id="topNavBar">
@@ -39,6 +39,13 @@
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Logout
 						</a>
 					</li>
+				</ul>
+				<ul class ="nav navbar-nav navbar-right">
+				    <li class="">
+				        <a href="edit_profile.html" style="color:white">
+				            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Edit Profile
+				        </a>
+				    </li>
 				</ul>
             </div>
         </div>
