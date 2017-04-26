@@ -161,6 +161,10 @@
 			j++;
            <?php } ?>;
 	</script>
+
+    <form action="export.php">
+        <button type="submit">Print List</button>
+    </form>
 </body>
 
 </html>
